@@ -1,71 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/layoutMain"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_android"
-            android:textSize="18sp"
-            android:textColor="#2196F3"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="16dp" />
+            android:text="@string/hello_android"
+            android:textColor="#2196F3"
+            android:textSize="18sp" />
+
         <EditText
+            android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editName"
+            android:autofillHints="name"
+            android:drawableStart="@android:drawable/ic_menu_edit"
             android:hint="@string/enter_your_name"
             android:inputType="textPersonName"
-            android:singleLine="true"
-            android:drawableStart="@android:drawable/ic_menu_edit"/>
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageProfile"
-            android:src="@drawable/md_pic"
-            android:textStyle="bold"
-            android:contentDescription="@string/profile_image"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"/>
-        <CheckBox
-            android:layout_width="wrap_content"
+            android:singleLine="true" />
+
+        <!-- Image aur Checkbox/Radio ek hi row mein, taake jagah bache -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/checkAgree"
-            android:text="@string/i_agree_to_terms"
-            android:checked="false"
-            android:buttonTint="#2196F3"/>
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
 
-        <RadioGroup
-            android:id="@+id/genderGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/profile_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/md_pic" />
 
-            <RadioButton
-                android:id="@+id/radioMale"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="12dp">
+
+                <CheckBox
+                    android:id="@+id/checkAgree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#2196F3"
+                    android:checked="false"
+                    android:text="@string/i_agree_to_terms" />
+
+                <RadioGroup
+                    android:id="@+id/genderGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#FF5722"
+                        android:checked="true"
+                        android:text="@string/male" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/female" />
+
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Wi-Fi toggle aur Bluetooth switch ek row mein -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/toggleWifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#FF5722"
+                android:backgroundTint="#4CAF50"
+                android:checked="false"
+                android:textOff="@string/wi_fi_off"
+                android:textOn="@string/wi_fi_on" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchBluetooth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:checked="true"
-                android:text="@string/male" />
+                android:minHeight="48dp"
+                android:text="@string/bluetooth"
+                android:thumbTint="#FFFFFF"
+                android:trackTint="#4CAF50" />
+        </LinearLayout>
 
+        <!-- Dono progress bars ek row mein -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioFemale"
-                android:layout_width="wrap_content"
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:indeterminate="true" />
+
+            <ProgressBar
+                android:id="@+id/progressDownload"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/female" />
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="40"
+                android:progressTint="#4CAF50" />
+        </LinearLayout>
 
-        </RadioGroup>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:scrollbars="vertical" />
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/country_list"
+            android:minHeight="48dp"
+            android:spinnerMode="dropdown" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:dividerHeight="1dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionThreshold="1"
+            android:hint="@string/enter_country"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

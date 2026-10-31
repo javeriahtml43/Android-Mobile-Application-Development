@@ -8,4 +8,15 @@
     <string name="female">Female</string>
     <string name="welcome">welcome</string>
     <string name="click_me">Click me!</string>
+    <string name="wi_fi_on">Wi-Fi ON</string>
+    <string name="wi_fi_off">Wi-Fi OFF</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="enter_country">Enter Country</string>
+
+    <string-array name="country_list">
+        <item>Pakistan</item>
+        <item>India</item>
+        <item>China</item>
+        <item>USA</item>
+    </string-array>
 </resources>
