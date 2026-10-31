@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hello_android">Hello Android</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="profile_image">Profile image</string>
+    <string name="i_agree_to_terms">I agree to terms</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="welcome">welcome</string>
+    <string name="click_me">Click me!</string>
+</resources>

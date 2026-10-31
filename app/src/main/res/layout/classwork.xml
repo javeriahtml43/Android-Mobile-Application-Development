@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutMain"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_android"
+            android:textSize="18sp"
+            android:textColor="#2196F3"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editName"
+            android:hint="@string/enter_your_name"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:drawableStart="@android:drawable/ic_menu_edit"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageProfile"
+            android:src="@drawable/md_pic"
+            android:textStyle="bold"
+            android:contentDescription="@string/profile_image"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkAgree"
+            android:text="@string/i_agree_to_terms"
+            android:checked="false"
+            android:buttonTint="#2196F3"/>
+
+        <RadioGroup
+            android:id="@+id/genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FF5722"
+                android:checked="true"
+                android:text="@string/male" />
+
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
