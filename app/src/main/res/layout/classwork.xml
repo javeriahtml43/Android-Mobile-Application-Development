@@ -32,9 +32,6 @@
             android:inputType="textPersonName"
             android:singleLine="true" />
 
-
-
-
             <ImageView
                 android:id="@+id/imageProfile"
                 android:layout_width="90dp"
@@ -43,8 +40,6 @@
                 android:contentDescription="@string/profile_image"
                 android:scaleType="centerCrop"
                 android:src="@drawable/md_pic" />
-
-
 
                 <CheckBox
                     android:id="@+id/checkAgree"
@@ -77,11 +72,6 @@
 
                 </RadioGroup>
 
-
-
-
-
-
             <ToggleButton
                 android:id="@+id/toggleWifi"
                 android:layout_width="wrap_content"
@@ -103,9 +93,6 @@
                 android:thumbTint="#FFFFFF"
                 android:trackTint="#4CAF50" />
 
-
-
-
             <ProgressBar
                 android:id="@+id/progressLoading"
                 android:layout_width="36dp"
@@ -122,7 +109,6 @@
                 android:max="100"
                 android:progress="40"
                 android:progressTint="#4CAF50" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
