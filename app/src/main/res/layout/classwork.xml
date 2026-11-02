@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+    <!-- A ScrollView can have only one direct child, so everything is inside this single LinearLayout -->
     <LinearLayout
         android:id="@+id/layoutMain"
         android:layout_width="match_parent"
@@ -11,14 +13,205 @@
         android:orientation="vertical"
         android:padding="12dp">
 
+        <!-- 1. LinearLayout example -->
         <TextView
-            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/Enter_Your_Name" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit" />
+
+        <!-- 2. RelativeLayout example -->
+        <RelativeLayout
+            android:id="@+id/layoutRelative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/txtLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtLabel"
+                android:hint="@string/enter_name" />
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/edtName"
+                android:layout_toEndOf="@id/edtName"
+                android:text="@string/ok" />
+        </RelativeLayout>
+
+        <!-- 3. ConstraintLayout example (separate section, not nested inside RelativeLayout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edtInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/Enter_Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            <Button
+                android:id="@+id/btnSubmitConstraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtInput" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 4. GridLayout example -->
+        <GridLayout
+            android:id="@+id/layoutGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:padding="10dp"
+            android:rowCount="3">
+
+            <Button android:text="@string/_1" />
+            <Button android:text="@string/_2" />
+            <Button android:text="@string/_3" />
+            <Button android:text="@string/_4" />
+            <Button android:text="@string/_5" />
+            <Button android:text="@string/_6" />
+        </GridLayout>
+
+        <!-- 5. Scroll example (no nested ScrollView inside, otherwise you get a nested-scroll warning) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_1_example_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_2_example_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_3_example_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_4_example_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_5_example_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_6_example_content" />
+        </LinearLayout>
+
+        <!-- 6. CardView example -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardExample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/md_pic" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="@string/CardView_Example"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtHello"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="10dp"
+                        android:text="@string/hello" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txtHello"
+                        android:layout_margin="10dp"
+                        android:text="@string/click" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/this_is_outside_the_nested_layout" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 7. Remaining widgets -->
+        <TextView
+            android:id="@+id/txtHelloAndroid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="@string/hello_android"
+            android:text="@string/Hello_Android"
             android:textColor="#2196F3"
             android:textSize="18sp" />
 
@@ -28,87 +221,82 @@
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:drawableStart="@android:drawable/ic_menu_edit"
-            android:hint="@string/enter_your_name"
+            android:hint="@string/Enter_your_Name"
             android:inputType="textPersonName"
             android:singleLine="true" />
 
-            <ImageView
-                android:id="@+id/imageProfile"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/profile_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/md_pic" />
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/Profile_Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/md_pic" />
 
-                <CheckBox
-                    android:id="@+id/checkAgree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#2196F3"
-                    android:checked="false"
-                    android:text="@string/i_agree_to_terms" />
+        <CheckBox
+            android:id="@+id/checkAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#2196F3"
+            android:checked="false"
+            android:text="@string/I_agree_to_terms" />
 
-                <RadioGroup
-                    android:id="@+id/genderGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radioMale"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#FF5722"
-                        android:checked="true"
-                        android:text="@string/male" />
-
-                    <RadioButton
-                        android:id="@+id/radioFemale"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="@string/female" />
-
-                </RadioGroup>
-
-            <ToggleButton
-                android:id="@+id/toggleWifi"
+            <RadioButton
+                android:id="@+id/radioMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#4CAF50"
-                android:checked="false"
-                android:textOff="@string/wi_fi_off"
-                android:textOn="@string/wi_fi_on" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switchBluetooth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
+                android:buttonTint="#FF5722"
                 android:checked="true"
-                android:minHeight="48dp"
-                android:text="@string/bluetooth"
-                android:thumbTint="#FFFFFF"
-                android:trackTint="#4CAF50" />
+                android:text="@string/Male" />
 
-            <ProgressBar
-                android:id="@+id/progressLoading"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:indeterminate="true" />
-
-            <ProgressBar
-                android:id="@+id/progressDownload"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="0dp"
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:max="100"
-                android:progress="40"
-                android:progressTint="#4CAF50" />
+                android:layout_marginStart="8dp"
+                android:text="@string/Female" />
+        </RadioGroup>
+
+        <ToggleButton
+            android:id="@+id/toggleWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:checked="false"
+            android:textOff="@string/Wi_fi_Off"
+            android:textOn="@string/Wi_Fi_On" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:minHeight="48dp"
+            android:text="@string/Bluetooth"
+            android:thumbTint="#FFFFFF"
+            android:trackTint="#4CAF50" />
+
+        <ProgressBar
+            android:id="@+id/progressLoading"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:indeterminate="true" />
+
+        <ProgressBar
+            android:id="@+id/progressDownload"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="40"
+            android:progressTint="#4CAF50" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -120,7 +308,6 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/country_list"
             android:minHeight="48dp"
             android:spinnerMode="dropdown" />
 
@@ -135,10 +322,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:completionThreshold="1"
-            android:hint="@string/enter_country"
+            android:hint="@string/Enter_Country"
             android:minHeight="48dp"
             android:textSize="16sp" />
 
     </LinearLayout>
-
 </ScrollView>
